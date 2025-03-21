@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Zeyada', cursive;
+            background: url('https://www.transparenttextures.com/patterns/aged-paper.png') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        .container, .intro-container {
+            background: rgba(245, 222, 179, 0.95);
+            padding: 40px;
+            max-width: 90%;
+            position: relative;
+            z-index: 2;
+            font-size: 28px;
+            border: 3px solid #8B5E3B;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-size: cover;
+            border-radius: 20px;
+            animation: fadeIn 3s ease-in-out;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .intro-container {
+            font-size: 36px;
+            cursor: pointer;
+            transition: opacity 1s ease-out;
+        }
+
+        h1 {
+            color: #8B5E3B;
+            font-size: 48px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards, bounce 1.5s infinite alternate ease-in-out;
+        }
+
+        p {
+            font-size: 26px;
+            color: #5A3825;
+            opacity: 0;
+            margin: 10px 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        .wax-seal {
+            width: 90px;
+            height: 90px;
+            background: #8B5E3B;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            color: white;
+            font-family: 'Zeyada', cursive;
+            animation: pulse 2s infinite;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .wax-seal:hover {
+            box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Improved mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            h1 { font-size: 36px; }
+            p { font-size: 20px; }
+            .container, .intro-container {
+                padding: 20px;
+                font-size: 20px;
+            }
+            .wax-seal {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+        }
+    </style>
+
+    <script>
+        function showLetter() {
+            let intro = document.querySelector(".intro-container");
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                intro.style.display = "none";
+                document.querySelector(".container").style.display = "block";
+            }, 1000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".container h1, .container p");
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = "1";
+                }, index * 800);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="intro-container" onclick="showLetter()">
+        <h1>Something Special for You ❤️</h1>
+        <p>Tap to reveal</p>
+    </div>
+    <div class="container" style="display: none;">
+        <h1>My Dearest Rishu 🌍</h1>
+        <p>Every moment with you is a beautiful melody, a song my heart sings only for you.</p>
+        <p>Your laughter is my favorite sound, your touch is my greatest comfort, and your love is the most precious gift I have ever received.</p>
+        <p>In your eyes, I see my home, my dreams, and my forever.</p>
+        <p>No matter where life takes us, know that my heart beats only for you.</p>
+        <p>You are my sunshine on the darkest days, my calm in the storm, and my sweetest adventure.</p>
+        <p>Loving you is effortless, and every day, I fall for you all over again.</p>
+        <p>You are my everything, my always, my love. Forever and always, I am yours. ❤️</p>
+        <div class="wax-seal">❤️</div>
+    </div>
+</body>
+</html>
